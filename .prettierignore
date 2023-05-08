@@ -18,7 +18,11 @@ node_modules
 
 # NPM
 !.npmrc
+!.npmignore
 
 # Prettier
 !.prettierignore
 !.prettierrc.json
+
+# pnpm
+pnpm-lock.yaml

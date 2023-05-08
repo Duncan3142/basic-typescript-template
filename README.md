@@ -23,7 +23,7 @@
 <br />
 <div align="center">
 	<a href="https://github.com/Duncan3142/basic-typescript-template">
-		<img src="readme/logo.png" alt="Logo" width="80" height="80">
+		<img src="assets/logo.png" alt="Logo" width="80" height="80">
 	</a>
 
 <h3 align="center">Typescript Template</h3>
