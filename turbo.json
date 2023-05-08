@@ -2,11 +2,6 @@
 	"$schema": "https://turborepo.org/schema.json",
 	"globalDependencies": ["package.json", ".env"],
 	"pipeline": {
-		"clean": {
-			"outputs": [],
-			"dependsOn": [],
-			"cache": false
-		},
 		"format:prettier": {
 			"outputs": [".prettier/**"],
 			"dependsOn": []
