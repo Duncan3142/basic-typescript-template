@@ -1,0 +1,12 @@
+{
+	"$schema": "https://json.schemastore.org/tsconfig",
+	"extends": "./tsconfig.base.json",
+	"compilerOptions": {
+		"lib": ["dom"],
+		"outDir": ".tsc/test",
+		"skipLibCheck": true, // ::TODO::: Remove when vitest fixes its type errors
+		"tsBuildInfoFile": ".tsc/test/tsconfig.test.tsbuildinfo"
+	},
+	"references": [{ "path": "./tsconfig.build.json" }],
+	"include": ["src/**/*.spec.ts", ".*", "*"]
+}
