@@ -20,7 +20,7 @@
 		}
   },
   "scripts": {
-    "postinstall": "husky install",
+    "prepare": "husky install",
     "clean": "rm -rf .eslint .prettier .tsc .vitest",
 		"format:prettier": "prettier --check --cache --cache-location='.prettier/cache' --cache-strategy=content .",
     "format": "turbo run format --cache-dir=\"./.turbo\"",
