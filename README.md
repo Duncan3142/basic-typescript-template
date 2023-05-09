@@ -87,7 +87,7 @@ A typescript template repository
 
 ### Installation
 
-Install workspace packages
+Install packages
 
 ```sh
 pnpm i
