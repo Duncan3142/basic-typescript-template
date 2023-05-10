@@ -1,33 +1,27 @@
 /** @type {import('eslint').Linter.Config} */
+
+const project = [
+  `${__dirname}/tsconfig.base.json`,
+  `${__dirname}/tsconfig.cnfg.json`,
+  `${__dirname}/tsconfig.build.json`,
+  `${__dirname}/tsconfig.test.json`,
+  `${__dirname}/tsconfig.json`,
+]
+
 module.exports = {
 	root: true,
 	extends: ["@duncan3142/eslint-cnfg"],
 	parserOptions: {
 		tsconfigRootDir: __dirname,
-		project: [
-			"./tsconfig.base.json",
-			"./tsconfig.build.json",
-			"./tsconfig.test.json",
-			"./tsconfig.json",
-		],
+		project
 	},
 	settings: {
 		"import/resolver": {
 			typescript: {
-				project: [
-					`${__dirname}/tsconfig.base.json`,
-					`${__dirname}/tsconfig.build.json`,
-					`${__dirname}/tsconfig.test.json`,
-					`${__dirname}/tsconfig.json`,
-				],
+				project
 			},
 			node: {
-				project: [
-					`${__dirname}/tsconfig.base.json`,
-					`${__dirname}/tsconfig.build.json`,
-					`${__dirname}/tsconfig.test.json`,
-					`${__dirname}/tsconfig.json`,
-				],
+				project
 			},
 		},
 	},

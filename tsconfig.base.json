@@ -3,9 +3,7 @@
 	"extends": "@duncan3142/tsc-config/tsconfig.json",
 	"compilerOptions": {
 		"noEmit": false,
-		"baseUrl": ".",
-		"paths": {
-		}
+		"paths": {}
 	},
 	"include": [],
 	"files": []
