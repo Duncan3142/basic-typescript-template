@@ -1,5 +1,6 @@
 {
 	"name": "@duncan3142/basic-typescript-template",
+	"repository": "https://github.com/duncan3142/basic-typescript-template",
 	"description": "Basic typescript template",
 	"keywords": [],
 	"version": "0.0.1",
