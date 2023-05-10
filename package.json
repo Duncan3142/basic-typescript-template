@@ -24,12 +24,13 @@
     "prepare": "husky install",
     "clean": "rm -rf .eslint .prettier .tsc .vitest .package",
 		"format:prettier": "prettier --check --cache --cache-location='.prettier/cache' --cache-strategy=content .",
-    "format": "turbo run format --cache-dir=\"./.turbo\"",
-		"build:tsc": "tsc --build",
-    "build": "turbo run build --cache-dir=\"./.turbo\"",
+    "format": "turbo run format:all --cache-dir=\"./.turbo\"",
+		"assets:tsc": "tsc --build",
+    "assets": "turbo run assets:all --cache-dir=\"./.turbo\"",
 		"test:eslint": "eslint --max-warnings 0 --cache --cache-location '.eslint/cache' --cache-strategy content .",
 		"test:vitest": "vitest run --coverage",
-		"test": "turbo run test --cache-dir=\"./.turbo\""
+		"test": "turbo run test:all --cache-dir=\"./.turbo\"",
+    "build": "turbo run build:all --cache-dir=\"./.turbo\""
   },
   "devDependencies": {
     "@changesets/cli": "^2.26.1",

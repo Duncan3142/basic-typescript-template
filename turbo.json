@@ -6,29 +6,33 @@
 			"outputs": [".prettier/**"],
 			"dependsOn": []
 		},
-		"format": {
+		"format:all": {
 			"outputs": [],
 			"dependsOn": ["format:prettier"]
 		},
-		"build:tsc": {
+		"assets:tsc": {
 			"outputs": [".tsc/**"],
-			"dependsOn": ["^build"]
+      "dependsOn": []
 		},
-		"build": {
+		"assets:all": {
 			"outputs": [],
-			"dependsOn": ["build:tsc"]
+			"dependsOn": ["assets:tsc"]
 		},
 		"test:eslint": {
 			"outputs": [".eslint/**"],
-			"dependsOn": ["build"]
+			"dependsOn": ["assets:all"]
 		},
 		"test:vitest": {
 			"outputs": [".vitest/**"],
-			"dependsOn": ["build"]
+			"dependsOn": ["assets:all"]
 		},
-		"test": {
+		"test:all": {
 			"outputs": [],
 			"dependsOn": ["test:eslint", "test:vitest"]
-		}
+		},
+    "build:all": {
+      "outputs": [],
+      "dependsOn": ["format:all", "assets:all", "test:all"]
+    }
 	}
 }
