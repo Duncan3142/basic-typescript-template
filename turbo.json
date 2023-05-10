@@ -12,7 +12,7 @@
 		},
 		"assets:tsc": {
 			"outputs": [".tsc/**"],
-      "dependsOn": []
+			"dependsOn": []
 		},
 		"assets:all": {
 			"outputs": [],
@@ -30,9 +30,9 @@
 			"outputs": [],
 			"dependsOn": ["test:eslint", "test:vitest"]
 		},
-    "build:all": {
-      "outputs": [],
-      "dependsOn": ["format:all", "assets:all", "test:all"]
-    }
+		"build:all": {
+			"outputs": [],
+			"dependsOn": ["format:all", "assets:all", "test:all"]
+		}
 	}
 }

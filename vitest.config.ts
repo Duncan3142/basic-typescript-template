@@ -1,13 +1,3 @@
-import { defineConfig } from "vitest/config"
+import { default as baseConfig } from "@duncan3142/vitest-cnfg"
 
-import tsconfigPaths from "vite-tsconfig-paths"
-
-export default defineConfig({
-	plugins: [tsconfigPaths()],
-	test: {
-		coverage: {
-			reportsDirectory: ".vitest/coverage",
-			all: true,
-		},
-	},
-})
+export default baseConfig

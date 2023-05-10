@@ -2,5 +2,9 @@
 	"$schema": "https://json.schemastore.org/tsconfig",
 	"include": [],
 	"files": [],
-	"references": [{ "path": "./tsconfig.build.json" }, { "path": "./tsconfig.test.json" }, { "path": "./tsconfig.cnfg.json" }]
+	"references": [
+		{ "path": "./tsconfig.build.json" },
+		{ "path": "./tsconfig.test.json" },
+		{ "path": "./tsconfig.cnfg.json" }
+	]
 }

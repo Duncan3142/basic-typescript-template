@@ -1,1 +1,1 @@
-export const template = () => console.log('template')
+export const template = (): void => console.log("template")

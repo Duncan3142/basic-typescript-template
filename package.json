@@ -1,44 +1,48 @@
 {
-  "name": "@duncan3142/basic-typescript-template",
-  "description": "Basic typescript template",
-  "keywords": [],
-  "version": "0.0.1",
-  "author": "Duncan Giles",
-  "type": "module",
-  "license": "MIT",
-  "engines": {
-    "node": "^18.0.0",
-    "pnpm": "^8.0.0"
-  },
-  "imports": {
-    "#/*": "./.tsc/dist/*"
-  },
-  "exports": {
-    ".": {
+	"name": "@duncan3142/basic-typescript-template",
+	"description": "Basic typescript template",
+	"keywords": [],
+	"version": "0.0.1",
+	"author": "Duncan Giles",
+	"type": "module",
+	"license": "MIT",
+	"engines": {
+		"node": "^18.0.0",
+		"pnpm": "^8.0.0"
+	},
+	"imports": {
+		"#/*": "./.tsc/dist/*"
+	},
+	"exports": {
+		".": {
 			"types": "./.tsc/dist/index.d.ts",
 			"import": "./.tsc/dist/index.js"
 		}
-  },
-  "files": [".tsc/dist"],
-  "scripts": {
-    "prepare": "husky install",
-    "clean": "rm -rf .eslint .prettier .tsc .vitest .package",
+	},
+	"files": [
+		".tsc/dist"
+	],
+	"scripts": {
+		"prepare": "husky install",
+		"clean": "rm -rf .eslint .prettier .tsc .vitest .package",
 		"format:prettier": "prettier --check --cache --cache-location='.prettier/cache' --cache-strategy=content .",
-    "format": "turbo run format:all --cache-dir=\"./.turbo\"",
+		"format": "turbo run format:all --cache-dir=\"./.turbo\"",
 		"assets:tsc": "tsc --build",
-    "assets": "turbo run assets:all --cache-dir=\"./.turbo\"",
+		"assets": "turbo run assets:all --cache-dir=\"./.turbo\"",
 		"test:eslint": "eslint --max-warnings 0 --cache --cache-location '.eslint/cache' --cache-strategy content .",
 		"test:vitest": "vitest run --coverage",
 		"test": "turbo run test:all --cache-dir=\"./.turbo\"",
-    "build": "turbo run build:all --cache-dir=\"./.turbo\""
-  },
-  "devDependencies": {
-    "@changesets/cli": "^2.26.1",
-    "@commitlint/config-conventional": "^17.6.3",
-    "@duncan3142/prettier-cnfg": "^1.0.0",
-    "commitlint": "^17.6.3",
-    "husky": "^8.0.3",
-    "prettier": "^2.8.8",
-    "turbo": "^1.9.3"
-  }
+		"build": "turbo run build:all --cache-dir=\"./.turbo\""
+	},
+	"devDependencies": {
+		"@changesets/cli": "^2.26.1",
+		"@commitlint/config-conventional": "^17.6.3",
+		"@duncan3142/eslint-config": "^1.0.2",
+		"@duncan3142/prettier-cnfg": "^1.0.0",
+		"@duncan3142/tsc-cnfg": "^1.0.2",
+		"@duncan3142/vitest-cnfg": "^1.0.3",
+		"commitlint": "^17.6.3",
+		"husky": "^8.0.3",
+		"turbo": "^1.9.3"
+	}
 }

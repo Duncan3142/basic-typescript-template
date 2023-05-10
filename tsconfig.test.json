@@ -4,7 +4,7 @@
 	"compilerOptions": {
 		"lib": ["dom"],
 		"rootDir": "test",
-    "outDir": ".tsc/test",
+		"outDir": ".tsc/test",
 		"skipLibCheck": true, // ::TODO::: Remove when vitest fixes its type errors
 		"tsBuildInfoFile": ".tsc/test/tsconfig.test.tsbuildinfo"
 	},
