@@ -1,6 +1,6 @@
 const project = [
 	`${__dirname}/tsconfig.base.json`,
-	`${__dirname}/tsconfig.cnfg.json`,
+	`${__dirname}/tsconfig.config.json`,
 	`${__dirname}/tsconfig.build.json`,
 	`${__dirname}/tsconfig.test.json`,
 	`${__dirname}/tsconfig.json`,

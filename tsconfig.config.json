@@ -4,7 +4,7 @@
 	"compilerOptions": {
 		"outDir": ".tsc",
 		"skipLibCheck": true, // ::TODO:: remove when vitest fixes its types
-		"tsBuildInfoFile": ".tsc/tsconfig.cnfg.tsbuildinfo"
+		"tsBuildInfoFile": ".tsc/tsconfig.config.tsbuildinfo"
 	},
 	"include": [".*", "*"]
 }
