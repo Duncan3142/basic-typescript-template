@@ -20,8 +20,8 @@ importers:
         specifier: ^1.0.4
         version: 1.0.4(@types/node@18.16.7)(typescript@5.0.4)
       '@duncan3142/vitest-config':
-        specifier: ^1.0.4
-        version: 1.0.4(@vitest/coverage-c8@0.31.0)(typescript@5.0.4)(vite@4.3.5)(vitest@0.31.0)
+        specifier: ^1.0.5
+        version: 1.0.5(@vitest/coverage-c8@0.31.0)(typescript@5.0.4)(vite@4.3.5)(vitest@0.31.0)
       commitlint:
         specifier: ^17.6.3
         version: 17.6.3
@@ -479,8 +479,8 @@ packages:
       typescript: 5.0.4
     dev: true
 
-  /@duncan3142/vitest-config@1.0.4(@vitest/coverage-c8@0.31.0)(typescript@5.0.4)(vite@4.3.5)(vitest@0.31.0):
-    resolution: {integrity: sha512-9/Ec3B+RaOOg96kO8cFyb2balgo8ejbA6ySlXASLKPnO+PkURFJv4YcynZgH3nbACFU9jo/r/QdsWr7I1LsuZA==, tarball: https://npm.pkg.github.com/download/@duncan3142/vitest-config/1.0.4/80f38f382d8c4478658006e25b67188db6799052}
+  /@duncan3142/vitest-config@1.0.5(@vitest/coverage-c8@0.31.0)(typescript@5.0.4)(vite@4.3.5)(vitest@0.31.0):
+    resolution: {integrity: sha512-fN1/ZkwXaJdlZrPfnCN/PxQd8O+X5AWLmmz/cEtace3TDvTX6w9PYGFRGnxhWikSOKoOvTf0q/dAsTFks+UOUg==, tarball: https://npm.pkg.github.com/download/@duncan3142/vitest-config/1.0.5/12583bba7155901502bd9ae74f1498958836f037}
     engines: {node: ^18.0.0, pnpm: ^8.0.0}
     peerDependencies:
       '@vitest/coverage-c8': ^0.31.0
