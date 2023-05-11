@@ -11,7 +11,6 @@ module.exports = {
 	root: true,
 	extends: ["@duncan3142"],
 	parserOptions: {
-		tsconfigRootDir: __dirname,
 		project,
 	},
 	settings: {
