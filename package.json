@@ -41,7 +41,7 @@
 		"@duncan3142/eslint-config": "^1.0.5",
 		"@duncan3142/prettier-config": "^1.0.1",
 		"@duncan3142/tsc-config": "^1.0.4",
-		"@duncan3142/vitest-config": "^1.0.5",
+		"@duncan3142/vitest-config": "^1.0.6",
 		"commitlint": "^17.6.3",
 		"husky": "^8.0.3",
 		"turbo": "^1.9.3"
