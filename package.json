@@ -21,7 +21,9 @@
 		}
 	},
 	"files": [
-		".tsc/dist"
+		".tsc/dist/**/*.js",
+		".tsc/dist/**/*.ts",
+		".tsc/dist/**/*.map"
 	],
 	"scripts": {
 		"prepare": "husky install",
