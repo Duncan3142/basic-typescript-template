@@ -19,17 +19,14 @@ jobs:
   publish-required:
     runs-on: ubuntu-latest
     steps:
-      - run: |
-          echo Test secret: "$CS_TEST_SECRET"
-        env:
-          CS_TEST_SECRET: ${{ secrets.CS_TEST_SECRET }}
       - name: Git checkout
         uses: actions/checkout@v3
       - name: Should publish
         id: should-publish
         run: |
           source ./build/should-publish.sh
-          echo "SHOULD_PUBLISH=$SHOULD_PUBLISH" >> "$GITHUB_OUTPUT"
+          echo SHOULD_PUBLISH: "${SHOULD_PUBLISH}"
+          echo "SHOULD_PUBLISH=${SHOULD_PUBLISH}" >> "$GITHUB_OUTPUT"
     outputs:
       SHOULD_PUBLISH: ${{ steps.should-publish.outputs.SHOULD_PUBLISH }}
 
