@@ -33,7 +33,10 @@ jobs:
           cache: "pnpm"
       - run: pnpm config -g set "//npm.pkg.github.com/:_authToken=${PNPM_AUTH_TOKEN}"
         env:
-          PNPM_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PNPM_AUTH_TOKEN: ${{ secrets.GH_PACKAGES_READ_TOKEN }}
       - run: pnpm install --frozen-lockfile --ignore-scripts
+      - run: pnpm config -g set "//npm.pkg.github.com/:_authToken=${PNPM_AUTH_TOKEN}"
+        env:
+          PNPM_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: ./build/publish.sh
       - run: git push
