@@ -52,16 +52,12 @@ jobs:
           check-latest: true
           node-version-file: ".nvmrc"
           cache: "pnpm"
-      - name: GitHub Packages installation token
-        run: pnpm config -g set "//npm.pkg.github.com/:_authToken=${PNPM_AUTH_TOKEN}"
-        env:
-          PNPM_AUTH_TOKEN: ${{ secrets.GH_PACKAGES_READ_TOKEN }}
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile --ignore-scripts
-      - name: GitHub Packages publishing token
+      - name: GitHub Packages token
         run: pnpm config -g set "//npm.pkg.github.com/:_authToken=${PNPM_AUTH_TOKEN}"
         env:
           PNPM_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile --ignore-scripts
       - name: Publish package
         run: ./build/publish.sh
       - name: Push changes
