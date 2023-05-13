@@ -1,4 +1,4 @@
-PENDING_CS=$(ls ./.changeset --ignore 'README.md' | grep '.*\.md$')
+PENDING_CS=$(ls ./.changeset --ignore 'README.md' | grep '.*\.md$' || true)
 if [ -z "$PENDING_CS" ]
 then
   echo "No pending changesets, skip publishing"
