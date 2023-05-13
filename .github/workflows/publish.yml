@@ -17,22 +17,21 @@ concurrency:
 
 jobs:
   publish-required:
+    name: Publish required
     runs-on: ubuntu-latest
     steps:
       - name: Git checkout
         uses: actions/checkout@v3
       - name: Should publish
         id: should-publish
-        shell: bash
         run: |
-          echo Try to source ./build/should-publish.sh
-          . ./build/should-publish.sh
-          echo SHOULD_PUBLISH: "${SHOULD_PUBLISH}"
+          source ./build/should-publish.sh
           echo "SHOULD_PUBLISH=${SHOULD_PUBLISH}" >> "$GITHUB_OUTPUT"
     outputs:
       SHOULD_PUBLISH: ${{ steps.should-publish.outputs.SHOULD_PUBLISH }}
 
   do-publish:
+    name: Publish
     needs: publish-required
     if: needs.publish-required.outputs.SHOULD_PUBLISH == 'true'
     runs-on: ubuntu-latest
@@ -53,13 +52,13 @@ jobs:
           check-latest: true
           node-version-file: ".nvmrc"
           cache: "pnpm"
-      - name: GitHub Packages install auth token
+      - name: GitHub Packages installation token
         run: pnpm config -g set "//npm.pkg.github.com/:_authToken=${PNPM_AUTH_TOKEN}"
         env:
           PNPM_AUTH_TOKEN: ${{ secrets.GH_PACKAGES_READ_TOKEN }}
       - name: Install dependencies
         run: pnpm install --frozen-lockfile --ignore-scripts
-      - name: GitHub Packages publish auth token
+      - name: GitHub Packages publishing token
         run: pnpm config -g set "//npm.pkg.github.com/:_authToken=${PNPM_AUTH_TOKEN}"
         env:
           PNPM_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
