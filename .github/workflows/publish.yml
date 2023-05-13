@@ -24,7 +24,8 @@ jobs:
       - name: Should publish
         id: should-publish
         run: |
-          source ./build/should-publish.sh
+          echo Try to source ./build/should-publish.sh
+          . ./build/should-publish.sh
           echo SHOULD_PUBLISH: "${SHOULD_PUBLISH}"
           echo "SHOULD_PUBLISH=${SHOULD_PUBLISH}" >> "$GITHUB_OUTPUT"
     outputs:
