@@ -8,8 +8,8 @@
 	"type": "module",
 	"license": "MIT",
 	"engines": {
-		"node": "^18.0.0",
-		"pnpm": "^8.0.0"
+		"node": ">=18",
+		"pnpm": ">=8"
 	},
 	"imports": {
 		"#/*": "./.tsc/dist/*"
@@ -26,13 +26,15 @@
 		".tsc/dist/**/*.map"
 	],
 	"scripts": {
-		"prepare": "husky install",
+		"prepare": "./.husky/install.sh",
 		"clean": "rm -rf .eslint .prettier .tsc .vitest .package",
 		"format:prettier": "prettier --check --cache --cache-location='.prettier/cache' --cache-strategy=content .",
+		"format:prettier:fix": "prettier --write --cache --cache-location='.prettier/cache' --cache-strategy=content .",
 		"format": "turbo run format:all --cache-dir=\"./.turbo\"",
 		"assets:tsc": "tsc --build",
 		"assets": "turbo run assets:all --cache-dir=\"./.turbo\"",
 		"test:eslint": "eslint --max-warnings 0 --cache --cache-location '.eslint/cache' --cache-strategy content .",
+		"test:eslint:fix": "eslint --fix --max-warnings 0 --cache --cache-location '.eslint/cache' --cache-strategy content .",
 		"test:vitest": "vitest run --coverage",
 		"test": "turbo run test:all --cache-dir=\"./.turbo\"",
 		"build": "turbo run build:all --cache-dir=\"./.turbo\""

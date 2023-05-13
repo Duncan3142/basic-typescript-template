@@ -1,0 +1,39 @@
+name: publish
+
+run-name: Publish
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+  packages: write
+
+concurrency:
+  group: publish
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: |
+          git config --global user.name "$GITHUB_ACTOR"
+          git config --global user.email "$GITHUB_ACTOR@users.noreply.github.com"
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
+      - uses: actions/setup-node@v3
+        with:
+          check-latest: true
+          node-version-file: ".nvmrc"
+          cache: "pnpm"
+      - run: pnpm config -g set "//npm.pkg.github.com/:_authToken=${PNPM_AUTH_TOKEN}"
+        env:
+          PNPM_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - run: pnpm install --frozen-lockfile --ignore-scripts
+      - run: ./build/publish.sh
+      - run: git push
