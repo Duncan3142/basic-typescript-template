@@ -2,4 +2,4 @@
 
 pnpm run build
 pnpm changeset version
-pnpm publish
+pnpm publish --access=restricted
