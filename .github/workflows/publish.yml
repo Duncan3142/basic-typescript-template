@@ -1,4 +1,4 @@
-name: publish
+name: Publish
 
 run-name: Publish
 
@@ -16,27 +16,55 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  publish:
+  publish-required:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
       - run: |
+          echo Test secret: "$CS_TEST_SECRET"
+        env:
+          CS_TEST_SECRET: ${{ secrets.CS_TEST_SECRET }}
+      - name: Git checkout
+        uses: actions/checkout@v3
+      - name: Should publish
+        id: should-publish
+        run: |
+          source ./build/should-publish.sh
+          echo "SHOULD_PUBLISH=$SHOULD_PUBLISH" >> "$GITHUB_OUTPUT"
+    outputs:
+      SHOULD_PUBLISH: ${{ steps.should-publish.outputs.SHOULD_PUBLISH }}
+
+  do-publish:
+    needs: publish-required
+    if: needs.publish-required.outputs.SHOULD_PUBLISH == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Git checkout
+        uses: actions/checkout@v3
+      - name: Git Config
+        run: |
           git config --global user.name "$GITHUB_ACTOR"
           git config --global user.email "$GITHUB_ACTOR@users.noreply.github.com"
-      - uses: pnpm/action-setup@v2
+      - name: Install PNPM
+        uses: pnpm/action-setup@v2
         with:
           version: 8
-      - uses: actions/setup-node@v3
+      - name: Install Node
+        uses: actions/setup-node@v3
         with:
           check-latest: true
           node-version-file: ".nvmrc"
           cache: "pnpm"
-      - run: pnpm config -g set "//npm.pkg.github.com/:_authToken=${PNPM_AUTH_TOKEN}"
+      - name: GitHub Packages install auth token
+        run: pnpm config -g set "//npm.pkg.github.com/:_authToken=${PNPM_AUTH_TOKEN}"
         env:
           PNPM_AUTH_TOKEN: ${{ secrets.GH_PACKAGES_READ_TOKEN }}
-      - run: pnpm install --frozen-lockfile --ignore-scripts
-      - run: pnpm config -g set "//npm.pkg.github.com/:_authToken=${PNPM_AUTH_TOKEN}"
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile --ignore-scripts
+      - name: GitHub Packages publish auth token
+        run: pnpm config -g set "//npm.pkg.github.com/:_authToken=${PNPM_AUTH_TOKEN}"
         env:
           PNPM_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - run: ./build/publish.sh
-      - run: git push
+      - name: Publish package
+        run: ./build/publish.sh
+      - name: Push changes
+        run: git push
