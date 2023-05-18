@@ -1,18 +1,18 @@
 export interface Extends {
 	covariant: {
 		scalar: {
-			true: true extends boolean ? true : false
-			false: boolean extends true ? true : false
+			good: 0 | 1 extends number ? true : false
+			bad: number extends 0 | 1 ? true : false
 		}
 		object: {
-			true: { a: true; b: "string" } extends { a: boolean; b: string } ? true : false
-			false: { a: true; b: "string" } extends { a: boolean; b: string; c: object }
+			good: { a: 0 | 1; b: "meow" | "woof" } extends { a: number; b: string } ? true : false
+			bad: { a: 0 | 1; b: "meow" | "woof" } extends { a: number; b: string; c: symbol }
 				? true
 				: false
 		}
 	}
 	contravariant: {
-		true: ((a: boolean) => boolean) extends (a: true) => boolean ? true : false
-		false: ((a: true) => boolean) extends (a: boolean) => boolean ? true : false
+		good: ((a: number) => string) extends (a: 0 | 1) => string ? true : false
+		bad: ((a: 0 | 1) => string) extends (a: number) => string ? true : false
 	}
 }
