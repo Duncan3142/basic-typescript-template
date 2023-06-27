@@ -3,7 +3,7 @@
 	"repository": "https://github.com/duncan3142/basic-typescript-template",
 	"description": "Basic typescript template",
 	"keywords": [],
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"author": "Duncan Giles",
 	"type": "module",
 	"license": "MIT",
