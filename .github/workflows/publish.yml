@@ -25,6 +25,7 @@ jobs:
       - name: Should publish
         id: should-publish
         run: |
+          set -e
           source ./build/should-publish.sh
           echo "SHOULD_PUBLISH=${SHOULD_PUBLISH}" >> "$GITHUB_OUTPUT"
     outputs:
